@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Registration Form</title>
+<style>
+legend {
+    color: green;
+    font-weight: bold;
+    font-size: 85%;
+    margin-bottom: .5em;
+}
+
+label {
+    float: left;
+    width: 12em;
+    text-align: right;
+}
+input, select {
+    width: 15em;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+#female, #male {
+    width: 2em;   
+}
+#submit, #reset {
+	width: 10em;
+}
+
+</style>
+<script>
+// JavaScript Document
+//number and alphabet
+function isPass(str) {
+    var va1 = /[A-Za-z]/g;
+    var va2 = /\d/g;
+    if (str.match(va1) && str.match(va2))
+        return true;
+    else return false;
+}
+//numeric and ‘/’  only
+function isDate(str){
+	var va = "1234567890/";
+	var ca,i;
+	for(i=0;i<str.length;i++){
+		ca = str.charAt(i);
+		if (va.indexOf(ca)==-1)
+			return false;
+		}
+		return true;	
+	}
+//cannot contain number
+function noNum(str){
+	var va = "1234567890";
+	var ca,i;
+	for (i=0;i<str.length;i++){
+			ca = str.charAt(i);
+			if (va.indexOf(ca)!=-1)
+				return false;
+		}
+		return true;
+	}
+
+function val(){
+    var fname = document.registration_form.fname.value;
+    //var birthday = document.registration_form.birthday.value;
+    var birthday = document.querySelector('input[type="date"]');
+   	var female = document.registration_form.gender[0].checked;
+	var male = document.registration_form.gender[1].checked;
+	var password = document.registration_form.password.value;
+	var retype = document.registration_form.retype.value;
+
+	var ans1 = document.registration_form.A1.value;
+	var ans2 = document.registration_form.A2.value;
+
+	if (noNum(fname)==false){
+        alert("fname cannot contain number!");
+			return false;
+		}
+	
+    if ((birthday == null) || isDate(birthday)==false){
+        alert("Birthday allow only number and / ");
+			return false;
+    }
+		
+	if((female == false) && (male == false))
+	{
+		alert("Gender cannot be blank");
+		return false;
+	}
+	
+    if (isPass(password) == false) {
+        alert("Password must consist of alphabet and numeric");
+        return false;
+    }
+	if(retype != password){
+		alert("Confirm password different with password");
+		return false;
+	}
+	
+	if((ans1 && ans2) == false)
+	{
+		alert("Cannot blank answer");
+		return false;
+	}
+}
+
+</script>
+</head>
+
+<body>
+<h1>Register as Member</h1>
+<form  action="register_account.html"  method="post" name="registration_form" id="registration_form" onSubmit="retfurn val()">
+<fieldset>
+<legend>Personal Information</legend>
+
+  <label for="fname">First Name: </label>
+<input name="fname" type="text" id="name" placeholder="Given Name" autofocus required>
+<br>
+<label for="sname">Surname: </label>
+  <input type="text" name="sname" id="sname" placeholder="Family Name" required>
+  <br>
+  <label for="gender">Gender: </label>
+        <input name="gender" type="radio" id="female" accesskey="f" value="female" onClick="return val()"/>female 
+      <input name="gender" type="radio" id="male" accesskey="m" value="male" onClick="return val()"/>male
+      <br>
+      <label for="birthday">Birth of Date: </label>
+  <input type="date" name="birthday" id="birthday" placeholder="mm/dd/yyyy">
+  <br>
+  <label for="email">Email: </label>
+  <input type="text" name="email" id="email">
+<br>
+  <label for="state">Country: </label>
+<select name="country" id="country">
+          <option>Malaysia</option>
+  </select>
+</fieldset>
+<fieldset>
+<legend>Select an ID and password</legend>
+
+<label for="userid">User ID: </label>
+<input name="userid" type="text" id="userid" maxlength="12" title="alphabet, numeric , and underscore '_'only" required>
+<br>
+<label for="label">Password: </label>
+<input name="password" type="password" id="label" maxlength="12" title="alphabet and numericonly" required>
+<br>
+<label for="retype">Retype Pasword: </label>
+<input name="retype" type="password" id="retype" maxlength="12" title="alphabet and numericonly" required>
+<br>
+</fieldset>
+<fieldset>
+<legend>In case your forget your ID and Password</legend>
+<label for="Q1">Secret Question 1: </label>
+<select name="Q1" id="Q1">
+          <option>-Select One-</option>
+          <option value="home town">Where is your home town</option>
+          <option value="mother name">What is your mother name</option>
+          <option value="primary school">What is your primary school name</option>
+  </select>
+<br>
+<label for="A2">Your Answer: </label>
+<input type="text" name="A1" id="A1">
+<br>
+<label for="Q2">Secret Question 2: </label>
+<select name="Q2" id="Q2">
+          <option>-Select One-</option>
+          <option value="first phone">What is your fisrt phone model</option>
+          <option value="song">What is your favorite song</option>
+          <option value="color">What is your favorite color</option>
+  </select>
+<br>
+<label for="A2">Your Answer: </label>
+<input type="text" name="A2" id="A2">
+<br>
+
+
+</fieldset>
+<fieldset><legend>Submit Application</legend>
+<label>&nbsp;</label>
+<input type="submit" id="submit" value="Submit">
+<input type="reset" id="reset" value="Reset"><br>
+</fieldset>
+</form>
+</body>
+</html>

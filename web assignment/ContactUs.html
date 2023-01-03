@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" type="image/x-icon" href="download.png"/>
+		<title>Contact Us</title>
+		<script src="Assignment.js"></script>
+		<link rel="stylesheet" type="text/css" href="Assignment.css" />
+	</head>
+	<body>
+		<div class="header"><a href="Home.html"><marquee><img src="logo.png" /></marquee></div></a>
+		<div class="nav">
+			<a href="Home.html">Home</a>
+			<a href="Category.html">Category</a>
+			<a href="AboutUs.html">About us</a>
+			<a href="ContactUs.html">Contact us</a>
+		</div>
+		<p id class="company">Address : <br/>HX Company,<br/>Kampus Utama, Jalan Genting Kelang, 53300 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</p>
+		<p class="comment">Comments, questions, suggestions? Just send us an email and we'll get back to you as soon as possible. </p>
+	<form name="form1" action="Submit.html" method="post">
+		<table>
+			<tr>
+		<td id="left">
+			<p id="question">Title</p>
+		</td>
+		<td>
+			<select class="question" id="title" required="required">
+			<option value="" disabled selected>- - Please Select - -</option>
+			<option>Mr</option>
+			<option>Mrs</option>
+			<option>Ms</option>
+			<option>Miss</option>
+			<option>Dr</option>
+			<option>Prof</option>
+			<option>Datuk</option>
+			<option>Tan Sri</option>
+			<option>Other</option>
+			</select>
+		</td>
+		</tr>
+		<tr>
+			<td >
+				<p id="question">First Name</p>
+			</td>
+			<td >
+				<input type="text" class="question" name="firstname" size="63" required placeholder=" Eg : Bruce"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p id="question">Surname</p>
+			</td>
+			<td>
+				<input type="text" class="question" name="surname" size="63" required placeholder=" Eg : Lee"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p id="question">Email</p>
+			</td>
+			<td>
+				<input type="text" class="question" name="email"size="63" required placeholder=" abc@email.com"/>
+			</td>
+			</tr>
+			<tr>
+				<td>
+					<p id="question">Phone Number</p>
+				</td>
+				<td>
+					<input type="tel" class="question" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{7}" size="63" required placeholder=" Eg : 012-3456789">
+				</td>
+			</tr>
+		<tr>
+			<td>
+				<p id="question">Enquiry or comment</p>
+			</td>
+			<td>
+				<textarea id="comment" name="comment"></textarea>
+			</td>
+		</tr>
+		</table>
+		<input type="submit" value="Submit" id="submit">
+		</form>
+		<footer>
+			<div class="navbottom">
+				<ul><a href="Home.html">Home</a></ul>
+				<ul><a href="Category.html">Category</a></ul>
+				<ul><a href="AboutUs.html">About us</a></ul>
+				<ul><a href="ContactUs.html">Contact us</a></ul>
+			</div>
+			<div class="footer">
+		<p>HX Company</p>
+		</div>
+		</footer>
+		<p id="copyright">Copyright © 2019 by Wong Rong Kai, Teh Jin Yang and Wong Zi Xiu</p>
+	</body>
+</html>
